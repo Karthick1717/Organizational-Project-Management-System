@@ -90,7 +90,7 @@ Project ───► Estimation
 1. Navigate to the backend folder:
 
 ```bash
-   cd backend
+   cd server
 
 ```
 
@@ -122,7 +122,7 @@ Project ───► Estimation
 1. Navigate to the frontend folder:
 
 ```bash
-   cd ../frontend
+   cd ../client
 
 ```
 
@@ -142,20 +142,9 @@ Project ───► Estimation
 
 ---
 
-## 📸 Report Screenshots & Demo
+## 📸 Report Screenshots
 
-* **Demo Video Link:** `[Insert your 5-10 min loom/drive demo link here]`
-
-| Project Summary Report Dashboard | Per-Member Performance & Lag Chart |
-| --- | --- |
-|  |  |
-
----
-
-## 📝 Declaration & Compliance
-
-* **Originality:** This module was written entirely from scratch to showcase real engineering solutions, architectural principles, and proper validation handling without reliance on raw AI output.
-* **On-Site Availability:** I hereby confirm my complete willingness and readiness to work **on-site at the main branch in SIPCOT Phase II, Hosur, Tamil Nadu** for the duration of this internship.
+<img width="1366" height="720" alt="image" src="https://github.com/user-attachments/assets/1d58125d-b7ad-40f7-bf1f-293cf896f392" />
 
 ```
 
