@@ -6,7 +6,7 @@ import {
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import Projects from "./pages/Projects";
+import Projects from "./pages/Project";
 import Tasks from "./pages/Tasks";
 import TeamMember from "./pages/TeamMember";
 import Analytics from "./pages/Analytics";
@@ -51,6 +51,12 @@ function App() {
           path="/signup"
           element={<Signup />}
         />
+
+
+      <Route
+  path="/projects"
+  element={<Projects />}
+    />
 
       </Routes>
     </BrowserRouter>
