@@ -32,6 +32,10 @@ require("./routes/subTaskRoutes");
 const timeLogRoutes =
 require("./routes/timeRouts");
 
+const notificationRoutes =
+require("./routes/notificationRoutes");
+
+
 
 
 
@@ -90,6 +94,10 @@ app.use(
   timeLogRoutes
 );
 
+app.use(
+  "/api/notifications",
+  notificationRoutes
+);
 
 app.get("/", (req, res) => {
   res.send("APJ3D Project Management API Running");
