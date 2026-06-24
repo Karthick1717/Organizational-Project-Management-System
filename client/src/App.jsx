@@ -1,20 +1,21 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Project";
 import Tasks from "./pages/Tasks";
-import TeamMember from "./pages/TeamMember";
+import TeamMembers from "./pages/TeamMember";
 import Analytics from "./pages/Analytics";
-import Signup from "./pages/Signup";
+
+import ProtectedRoute from "./pages/ProtectedRoute";
+import RoleProtectedRoute from "./pages/RoleProtected";
+import NavBar from "./pages/NavBar"
 
 function App() {
   return (
     <BrowserRouter>
+     {localStorage.getItem("token")&&<NavBar/>}
       <Routes>
 
         <Route
@@ -23,42 +24,70 @@ function App() {
         />
 
         <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
-
-        <Route
-          path="/projects"
-          element={<Projects />}
-        />
-
-        <Route
-          path="/tasks"
-          element={<Tasks />}
-        />
-
-        <Route
-          path="/members"
-          element={<TeamMember />}
-        />
-
-        <Route
-          path="/analytics"
-          element={<Analytics />}
-        />
-
-        <Route
           path="/signup"
           element={<Signup />}
         />
 
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-  path="/projects"
-  element={<Projects />}
-    />
+        <Route
+          path="/projects"
+          element={
+            <RoleProtectedRoute
+              allowedRoles={[
+                "Admin",
+                "Manager",
+              ]}
+            >
+              <Projects />
+            </RoleProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/tasks"
+          element={
+            <ProtectedRoute>
+              <Tasks />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/members"
+          element={
+            <RoleProtectedRoute
+              allowedRoles={[
+                "Admin",
+              ]}
+            >
+              <TeamMembers />
+            </RoleProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/analytics"
+          element={
+            <RoleProtectedRoute
+              allowedRoles={[
+                "Admin",
+              ]}
+            >
+              <Analytics />
+            </RoleProtectedRoute>
+          }
+        />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
